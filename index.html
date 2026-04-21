@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vismay Sajith</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+body {
+  background: linear-gradient(135deg,#0f172a,#1e293b);
+  color:white;
+}
+
+nav {
+  display:flex; justify-content:space-between;
+  padding:20px 10%; position:sticky; top:0;
+  backdrop-filter: blur(10px);
+}
+nav h2 {color:#38bdf8;}
+nav a {margin-left:20px; color:white; text-decoration:none;}
+nav a:hover {color:#38bdf8;}
+
+.hero {text-align:center; padding:120px 20px;}
+.hero h1 {font-size:48px;}
+.hero span {color:#38bdf8;}
+.typing {color:#38bdf8; font-weight:600;}
+
+.btn {
+  margin-top:15px;
+  display:inline-block;
+  padding:10px 20px;
+  border-radius:8px;
+  background:#38bdf8;
+  color:black;
+  text-decoration:none;
+}
+
+section {padding:60px 10%;}
+h2 {color:#38bdf8; margin-bottom:20px;}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  backdrop-filter: blur(10px);
+  transition:0.4s;
+  cursor:pointer;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow:0 10px 30px rgba(56,189,248,0.2);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.skill {margin-bottom:15px;}
+.skill-bar {
+  height:8px; background:#334155;
+  border-radius:5px; overflow:hidden;
+}
+.skill-fill {
+  height:100%; background:#38bdf8;
+  width:0;
+  transition:1.5s;
+}
+
+.modal {
+  display:none;
+  position:fixed;
+  z-index:999;
+  left:0; top:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+}
+.modal-content {
+  background:#1e293b;
+  margin:8% auto;
+  padding:25px;
+  width:90%;
+  max-width:600px;
+  border-radius:15px;
+}
+.close {
+  float:right;
+  font-size:24px;
+  cursor:pointer;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  opacity:0.7;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+  <h2>Vismay</h2>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Hi, I'm <span>Vismay Sajith</span></h1>
+  <h2 class="typing"></h2>
+  <p>Building impactful software & user-focused applications</p>
+  <a href="resume.pdf" class="btn" target="_blank">Download Resume</a>
+</div>
+
+<section id="about" data-aos="fade-up">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      Computer Science undergraduate skilled in Python, Java, and Web Development.
+      Passionate about solving real-world problems and building scalable applications.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 data-aos="fade-up">Projects</h2>
+  <div class="grid">
+
+    <div class="card" onclick="openModal('p1')" data-aos="zoom-in">
+      <h3>Internship Progress Portal</h3>
+      <p>Python, Flask</p>
+    </div>
+
+    <div class="card" onclick="openModal('p2')" data-aos="zoom-in" data-aos-delay="100">
+      <h3>Gamified Learning Website</h3>
+      <p>Java</p>
+    </div>
+
+    <div class="card" onclick="openModal('p3')" data-aos="zoom-in" data-aos-delay="200">
+      <h3>Lost & Found System</h3>
+      <p>Flask, MySQL</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <h2 data-aos="fade-up">Skills</h2>
+
+  <div class="skill">
+    <p>Python</p>
+    <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+  </div>
+
+  <div class="skill">
+    <p>Java</p>
+    <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+  </div>
+
+  <div class="skill">
+    <p>Web Development</p>
+    <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+  </div>
+
+</section>
+
+<section id="contact" data-aos="fade-up">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: vs2020@srmist.edu.in</p>
+    <p>Phone: 8714460273</p>
+
+    <a href="https://github.com/Vismxy" target="_blank" class="btn">GitHub</a>
+    <a href="https://www.linkedin.com/in/vismay-sajith/" target="_blank" class="btn">LinkedIn</a>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Vismay Sajith</p>
+</footer>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+const text = ["Developer", "Problem Solver", "Tech Enthusiast"];
+let i=0,j=0,current="",isDeleting=false;
+
+function type(){
+  current=text[i];
+  if(!isDeleting){
+    document.querySelector(".typing").textContent=current.substring(0,j++);
+    if(j>current.length){isDeleting=true;setTimeout(type,1000);return;}
+  } else {
+    document.querySelector(".typing").textContent=current.substring(0,j--);
+    if(j==0){isDeleting=false;i=(i+1)%text.length;}
+  }
+  setTimeout(type,100);
+}
+type();
+
+AOS.init({duration:1000, once:true});
+
+function openModal(id){
+  const data={
+    p1:`<h2>Internship Progress Portal</h2>
+        <p><b>Tech:</b> Python, Flask, SQLite</p>
+        <p>Platform to track intern performance and analytics.</p>
+        <ul>
+          <li>Role-based dashboards</li>
+          <li>Performance tracking</li>
+          <li>Data insights</li>
+        </ul>
+        <a href="https://github.com/Vismxy" target="_blank" class="btn">View Code</a>`,
+
+    p2:`<h2>Gamified Learning Website</h2>
+        <p><b>Tech:</b> Java, Supabase</p>
+        <p>Engagement-focused learning platform.</p>
+        <ul>
+          <li>Points & rewards</li>
+          <li>Leaderboards</li>
+          <li>Analytics</li>
+        </ul>
+        <a href="https://github.com/Vismxy" target="_blank" class="btn">View Code</a>`,
+
+    p3:`<h2>Lost & Found System</h2>
+        <p><b>Tech:</b> Flask, MySQL</p>
+        <p>Centralized lost item tracking system.</p>
+        <ul>
+          <li>Search system</li>
+          <li>Claim tracking</li>
+          <li>Database management</li>
+        </ul>
+        <a href="https://github.com/Vismxy" target="_blank" class="btn">View Code</a>`
+  };
+
+  document.getElementById("modal-body").innerHTML=data[id];
+  document.getElementById("modal").style.display="block";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+window.addEventListener("load", () => {
+  document.querySelectorAll(".skill-fill").forEach(el => {
+    el.style.width = el.style.width;
+  });
+});
+</script>
+
+</body>
+</html>
